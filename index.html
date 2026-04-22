@@ -1,31 +1,129 @@
 <!doctype html>
-<html>
-  <head>
-    <title>LA TV Shows | Home</title>
-    <meta name="description" content="A Catalog of Shows Set in Los Angeles" />
-    <link rel="stylesheet" href="style.css" />
-    <script type="text/javascript" src="scripts.js"></script>
-  </head>
+<html lang="en">
+    <head>
+        <title>Coachella Headliners</title>
+        <meta
+            name="description"
+            content="A Catalog of Coachella Headliners 2017–2024"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="style.css" />
+        <script type="text/javascript" src="scripts.js" defer></script>
+    </head>
 
-  <body>
-    <header class="main-header">
-      <h1 class="title">LA TV Shows</h1>
-    </header>
-    <div id="card-container"></div>
-    <div class="card" style="display: none">
-      <div class="card-content">
-        <h2>TV Show Title</h2>
-        <img src="" alt="TV Show Poster" />
-        <ul>
-          <li>Bullet Point 1</li>
-          <li>Bullet Point 2</li>
-          <li>Bullet Point 3</li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer">
-      <button onclick="quoteAlert()">Get A Quote!</button>
-      <button onclick="removeLastCard()">Remove A Card!</button>
-    </div>
-  </body>
+    <body>
+        <!-- HEADER -->
+        <header class="main-header">
+            <div class="header-content">
+                <p class="header-eyebrow">
+                    &#9679; EMPIRE POLO CLUB &nbsp;&middot;&nbsp; INDIO,
+                    CALIFORNIA
+                </p>
+                <h1 class="title">COACHELLA</h1>
+                <p class="header-tagline">VALLEY MUSIC &amp; ARTS FESTIVAL</p>
+                <p class="header-sub">
+                    Headliner Catalog &nbsp;&middot;&nbsp; 2017&ndash;2024
+                </p>
+            </div>
+        </header>
+
+        <!-- CONTROLS -->
+        <div id="controls-bar">
+            <div id="search-wrap">
+                <span class="search-icon">&#128269;</span>
+                <input
+                    type="text"
+                    id="search-input"
+                    placeholder="Search artists..."
+                    oninput="filterAndRender()"
+                />
+            </div>
+
+            <div id="genre-filters">
+                <button
+                    class="genre-btn active"
+                    onclick="setGenreFilter('All', this)"
+                >
+                    All
+                </button>
+                <button class="genre-btn" onclick="setGenreFilter('R&B', this)">
+                    R&amp;B
+                </button>
+                <button
+                    class="genre-btn"
+                    onclick="setGenreFilter('Hip-Hop', this)"
+                >
+                    Hip-Hop
+                </button>
+                <button class="genre-btn" onclick="setGenreFilter('Pop', this)">
+                    Pop
+                </button>
+                <button
+                    class="genre-btn"
+                    onclick="setGenreFilter('Alternative', this)"
+                >
+                    Alternative
+                </button>
+                <button
+                    class="genre-btn"
+                    onclick="setGenreFilter('Latin', this)"
+                >
+                    Latin
+                </button>
+                <button
+                    class="genre-btn"
+                    onclick="setGenreFilter('K-Pop', this)"
+                >
+                    K-Pop
+                </button>
+                <button
+                    class="genre-btn"
+                    onclick="setGenreFilter('Rock', this)"
+                >
+                    Rock
+                </button>
+            </div>
+
+            <div id="sort-wrap">
+                <label for="sort-select">Sort by</label>
+                <select id="sort-select" onchange="filterAndRender()">
+                    <option value="year-desc">Newest First</option>
+                    <option value="year-asc">Oldest First</option>
+                    <option value="name-asc">A &ndash; Z</option>
+                    <option value="rating-desc">Top Rated</option>
+                </select>
+            </div>
+        </div>
+
+        <p id="results-count"></p>
+
+        <!-- CARD GRID -->
+        <div id="card-container"></div>
+
+        <!-- Hidden template card — required by starter code -->
+        <div class="card" style="display: none">
+            <div class="card-content">
+                <h2>Artist Name</h2>
+                <img src="" alt="Artist Photo" />
+                <ul>
+                    <li>Fact 1</li>
+                    <li>Fact 2</li>
+                    <li>Fact 3</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <button onclick="quoteAlert()">&#127908; &nbsp;Iconic Quote</button>
+            <button onclick="removeLastCard()">
+                &#10005; &nbsp;Remove Last Card
+            </button>
+        </div>
+    </body>
 </html>
